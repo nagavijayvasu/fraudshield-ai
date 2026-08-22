@@ -1,0 +1,1106 @@
+import type { ModelWeights } from "./types.ts";
+
+export const modelWeights: ModelWeights = {
+  "feature_names": [
+    "amount",
+    "hour_of_day",
+    "is_night",
+    "recent_transaction_count",
+    "velocity_1h",
+    "previous_chargebacks",
+    "failed_transaction_count",
+    "is_new_device",
+    "is_new_ip",
+    "distance_from_home",
+    "device_account_count",
+    "ip_account_count",
+    "amount_deviation"
+  ],
+  "coefficients": [
+    0.04886261812850901,
+    -0.09556083840139985,
+    -0.1450111628612266,
+    0.3370282614460979,
+    0.025613046527242275,
+    0.729507729232255,
+    0.5332280272369055,
+    0.22069530725313077,
+    0.33961798589918674,
+    0.2778440712658091,
+    0.14245538445916084,
+    0.3113627544804247,
+    -0.07121921753889497
+  ],
+  "intercept": -2.040446812458971,
+  "scaler_mean": [
+    53.25879531250001,
+    14.135,
+    0.0346875,
+    2.37234375,
+    2.024296875,
+    0.1065625,
+    0.520078125,
+    0.087734375,
+    0.090703125,
+    70.04147656250045,
+    1.641328125,
+    1.909140625,
+    2.6203680468749986
+  ],
+  "scaler_scale": [
+    108.73550368771248,
+    4.346718589925057,
+    0.18298709611269406,
+    1.954510202540811,
+    1.519956919410888,
+    0.4102827483501808,
+    1.0149984575833573,
+    0.28290820851180876,
+    0.28718646924118413,
+    114.81070085351824,
+    1.043294714394671,
+    1.261674561436013,
+    7.610963848040674
+  ],
+  "threshold": 0.9,
+  "version": "1.0.0"
+};
+
+export const modelMetrics = {
+  "model_type": "LogisticRegression",
+  "version": "1.0.0",
+  "trained_at": "2026-08-22T12:51:18.904827",
+  "feature_names": [
+    "amount",
+    "hour_of_day",
+    "is_night",
+    "recent_transaction_count",
+    "velocity_1h",
+    "previous_chargebacks",
+    "failed_transaction_count",
+    "is_new_device",
+    "is_new_ip",
+    "distance_from_home",
+    "device_account_count",
+    "ip_account_count",
+    "amount_deviation"
+  ],
+  "threshold": 0.9,
+  "f1_threshold": 0.89,
+  "optimal_financial_threshold": 0.9,
+  "precision": 0.6536,
+  "recall": 0.8333,
+  "f1_score": 0.7326,
+  "roc_auc": 0.9794,
+  "pr_auc": 0.8344,
+  "false_positive_rate": 0.0137,
+  "false_negative_rate": 0.1667,
+  "confusion_matrix": [
+    [
+      3828,
+      53
+    ],
+    [
+      20,
+      100
+    ]
+  ],
+  "test_set_size": 4001,
+  "test_fraud_count": 120,
+  "baseline_loss": 29826.36,
+  "min_business_loss": 4295.92,
+  "optimal_savings": 25530.44,
+  "financial_metrics": [
+    {
+      "threshold": 0.01,
+      "false_positive_cost": 95384.16,
+      "false_negative_cost": 0.0,
+      "total_loss": 95384.16,
+      "net_savings": -65557.8,
+      "precision": 0.03,
+      "recall": 1.0,
+      "f1_score": 0.0582
+    },
+    {
+      "threshold": 0.02,
+      "false_positive_cost": 95384.16,
+      "false_negative_cost": 0.0,
+      "total_loss": 95384.16,
+      "net_savings": -65557.8,
+      "precision": 0.03,
+      "recall": 1.0,
+      "f1_score": 0.0582
+    },
+    {
+      "threshold": 0.03,
+      "false_positive_cost": 93708.95,
+      "false_negative_cost": 0.0,
+      "total_loss": 93708.95,
+      "net_savings": -63882.59,
+      "precision": 0.0305,
+      "recall": 1.0,
+      "f1_score": 0.0592
+    },
+    {
+      "threshold": 0.04,
+      "false_positive_cost": 83928.26,
+      "false_negative_cost": 0.0,
+      "total_loss": 83928.26,
+      "net_savings": -54101.9,
+      "precision": 0.0341,
+      "recall": 1.0,
+      "f1_score": 0.0659
+    },
+    {
+      "threshold": 0.05,
+      "false_positive_cost": 71866.23,
+      "false_negative_cost": 170.1,
+      "total_loss": 72036.33,
+      "net_savings": -42209.97,
+      "precision": 0.0395,
+      "recall": 0.9917,
+      "f1_score": 0.076
+    },
+    {
+      "threshold": 0.06,
+      "false_positive_cost": 59973.87,
+      "false_negative_cost": 170.1,
+      "total_loss": 60143.97,
+      "net_savings": -30317.61,
+      "precision": 0.0473,
+      "recall": 0.9917,
+      "f1_score": 0.0903
+    },
+    {
+      "threshold": 0.07,
+      "false_positive_cost": 50515.53,
+      "false_negative_cost": 170.1,
+      "total_loss": 50685.63,
+      "net_savings": -20859.27,
+      "precision": 0.0564,
+      "recall": 0.9917,
+      "f1_score": 0.1067
+    },
+    {
+      "threshold": 0.08,
+      "false_positive_cost": 42720.69,
+      "false_negative_cost": 170.1,
+      "total_loss": 42890.79,
+      "net_savings": -13064.43,
+      "precision": 0.0667,
+      "recall": 0.9917,
+      "f1_score": 0.1251
+    },
+    {
+      "threshold": 0.09,
+      "false_positive_cost": 37103.3,
+      "false_negative_cost": 170.1,
+      "total_loss": 37273.4,
+      "net_savings": -7447.04,
+      "precision": 0.0768,
+      "recall": 0.9917,
+      "f1_score": 0.1426
+    },
+    {
+      "threshold": 0.1,
+      "false_positive_cost": 32512.11,
+      "false_negative_cost": 192.26,
+      "total_loss": 32704.37,
+      "net_savings": -2878.01,
+      "precision": 0.0872,
+      "recall": 0.9833,
+      "f1_score": 0.1602
+    },
+    {
+      "threshold": 0.11,
+      "false_positive_cost": 29012.17,
+      "false_negative_cost": 192.26,
+      "total_loss": 29204.43,
+      "net_savings": 621.93,
+      "precision": 0.0976,
+      "recall": 0.9833,
+      "f1_score": 0.1776
+    },
+    {
+      "threshold": 0.12,
+      "false_positive_cost": 25978.31,
+      "false_negative_cost": 192.26,
+      "total_loss": 26170.57,
+      "net_savings": 3655.79,
+      "precision": 0.1091,
+      "recall": 0.9833,
+      "f1_score": 0.1963
+    },
+    {
+      "threshold": 0.13,
+      "false_positive_cost": 23525.27,
+      "false_negative_cost": 192.26,
+      "total_loss": 23717.53,
+      "net_savings": 6108.83,
+      "precision": 0.1208,
+      "recall": 0.9833,
+      "f1_score": 0.2151
+    },
+    {
+      "threshold": 0.14,
+      "false_positive_cost": 21982.11,
+      "false_negative_cost": 192.26,
+      "total_loss": 22174.37,
+      "net_savings": 7651.99,
+      "precision": 0.1292,
+      "recall": 0.9833,
+      "f1_score": 0.2285
+    },
+    {
+      "threshold": 0.15,
+      "false_positive_cost": 20588.26,
+      "false_negative_cost": 192.26,
+      "total_loss": 20780.52,
+      "net_savings": 9045.84,
+      "precision": 0.1383,
+      "recall": 0.9833,
+      "f1_score": 0.2425
+    },
+    {
+      "threshold": 0.16,
+      "false_positive_cost": 19330.15,
+      "false_negative_cost": 192.26,
+      "total_loss": 19522.41,
+      "net_savings": 10303.95,
+      "precision": 0.1473,
+      "recall": 0.9833,
+      "f1_score": 0.2562
+    },
+    {
+      "threshold": 0.17,
+      "false_positive_cost": 18350.58,
+      "false_negative_cost": 215.65,
+      "total_loss": 18566.23,
+      "net_savings": 11260.13,
+      "precision": 0.1542,
+      "recall": 0.975,
+      "f1_score": 0.2662
+    },
+    {
+      "threshold": 0.18,
+      "false_positive_cost": 17257.72,
+      "false_negative_cost": 278.23,
+      "total_loss": 17535.95,
+      "net_savings": 12290.41,
+      "precision": 0.1625,
+      "recall": 0.9667,
+      "f1_score": 0.2782
+    },
+    {
+      "threshold": 0.19,
+      "false_positive_cost": 16238.17,
+      "false_negative_cost": 328.82,
+      "total_loss": 16566.99,
+      "net_savings": 13259.37,
+      "precision": 0.1714,
+      "recall": 0.9583,
+      "f1_score": 0.2908
+    },
+    {
+      "threshold": 0.2,
+      "false_positive_cost": 15577.39,
+      "false_negative_cost": 328.82,
+      "total_loss": 15906.21,
+      "net_savings": 13920.15,
+      "precision": 0.178,
+      "recall": 0.9583,
+      "f1_score": 0.3003
+    },
+    {
+      "threshold": 0.21,
+      "false_positive_cost": 15062.17,
+      "false_negative_cost": 328.82,
+      "total_loss": 15390.99,
+      "net_savings": 14435.37,
+      "precision": 0.1843,
+      "recall": 0.9583,
+      "f1_score": 0.3091
+    },
+    {
+      "threshold": 0.22,
+      "false_positive_cost": 14373.68,
+      "false_negative_cost": 328.82,
+      "total_loss": 14702.5,
+      "net_savings": 15123.86,
+      "precision": 0.192,
+      "recall": 0.9583,
+      "f1_score": 0.3199
+    },
+    {
+      "threshold": 0.23,
+      "false_positive_cost": 13912.2,
+      "false_negative_cost": 492.71,
+      "total_loss": 14404.91,
+      "net_savings": 15421.45,
+      "precision": 0.1969,
+      "recall": 0.95,
+      "f1_score": 0.3262
+    },
+    {
+      "threshold": 0.24,
+      "false_positive_cost": 13352.16,
+      "false_negative_cost": 561.48,
+      "total_loss": 13913.64,
+      "net_savings": 15912.72,
+      "precision": 0.2029,
+      "recall": 0.9417,
+      "f1_score": 0.3338
+    },
+    {
+      "threshold": 0.25,
+      "false_positive_cost": 12728.08,
+      "false_negative_cost": 561.48,
+      "total_loss": 13289.56,
+      "net_savings": 16536.8,
+      "precision": 0.2124,
+      "recall": 0.9417,
+      "f1_score": 0.3466
+    },
+    {
+      "threshold": 0.26,
+      "false_positive_cost": 12502.22,
+      "false_negative_cost": 561.48,
+      "total_loss": 13063.7,
+      "net_savings": 16762.66,
+      "precision": 0.2165,
+      "recall": 0.9417,
+      "f1_score": 0.352
+    },
+    {
+      "threshold": 0.27,
+      "false_positive_cost": 12146.72,
+      "false_negative_cost": 561.48,
+      "total_loss": 12708.19,
+      "net_savings": 17118.17,
+      "precision": 0.2229,
+      "recall": 0.9417,
+      "f1_score": 0.3604
+    },
+    {
+      "threshold": 0.28,
+      "false_positive_cost": 11640.65,
+      "false_negative_cost": 561.48,
+      "total_loss": 12202.13,
+      "net_savings": 17624.23,
+      "precision": 0.2316,
+      "recall": 0.9417,
+      "f1_score": 0.3717
+    },
+    {
+      "threshold": 0.29,
+      "false_positive_cost": 11348.92,
+      "false_negative_cost": 561.48,
+      "total_loss": 11910.4,
+      "net_savings": 17915.96,
+      "precision": 0.2369,
+      "recall": 0.9417,
+      "f1_score": 0.3786
+    },
+    {
+      "threshold": 0.3,
+      "false_positive_cost": 11070.99,
+      "false_negative_cost": 561.48,
+      "total_loss": 11632.47,
+      "net_savings": 18193.89,
+      "precision": 0.242,
+      "recall": 0.9417,
+      "f1_score": 0.385
+    },
+    {
+      "threshold": 0.31,
+      "false_positive_cost": 10861.14,
+      "false_negative_cost": 561.48,
+      "total_loss": 11422.62,
+      "net_savings": 18403.74,
+      "precision": 0.2462,
+      "recall": 0.9417,
+      "f1_score": 0.3903
+    },
+    {
+      "threshold": 0.32,
+      "false_positive_cost": 10622.64,
+      "false_negative_cost": 561.48,
+      "total_loss": 11184.12,
+      "net_savings": 18642.24,
+      "precision": 0.2511,
+      "recall": 0.9417,
+      "f1_score": 0.3965
+    },
+    {
+      "threshold": 0.33,
+      "false_positive_cost": 10410.7,
+      "false_negative_cost": 561.48,
+      "total_loss": 10972.18,
+      "net_savings": 18854.18,
+      "precision": 0.2562,
+      "recall": 0.9417,
+      "f1_score": 0.4029
+    },
+    {
+      "threshold": 0.34,
+      "false_positive_cost": 10150.28,
+      "false_negative_cost": 561.48,
+      "total_loss": 10711.76,
+      "net_savings": 19114.6,
+      "precision": 0.261,
+      "recall": 0.9417,
+      "f1_score": 0.4087
+    },
+    {
+      "threshold": 0.35,
+      "false_positive_cost": 9954.39,
+      "false_negative_cost": 561.48,
+      "total_loss": 10515.87,
+      "net_savings": 19310.49,
+      "precision": 0.2659,
+      "recall": 0.9417,
+      "f1_score": 0.4147
+    },
+    {
+      "threshold": 0.36,
+      "false_positive_cost": 9738.24,
+      "false_negative_cost": 561.48,
+      "total_loss": 10299.72,
+      "net_savings": 19526.64,
+      "precision": 0.271,
+      "recall": 0.9417,
+      "f1_score": 0.4209
+    },
+    {
+      "threshold": 0.37,
+      "false_positive_cost": 9560.06,
+      "false_negative_cost": 561.48,
+      "total_loss": 10121.54,
+      "net_savings": 19704.82,
+      "precision": 0.2756,
+      "recall": 0.9417,
+      "f1_score": 0.4264
+    },
+    {
+      "threshold": 0.38,
+      "false_positive_cost": 9350.07,
+      "false_negative_cost": 561.48,
+      "total_loss": 9911.55,
+      "net_savings": 19914.81,
+      "precision": 0.2818,
+      "recall": 0.9417,
+      "f1_score": 0.4338
+    },
+    {
+      "threshold": 0.39,
+      "false_positive_cost": 9126.57,
+      "false_negative_cost": 561.48,
+      "total_loss": 9688.05,
+      "net_savings": 20138.31,
+      "precision": 0.2883,
+      "recall": 0.9417,
+      "f1_score": 0.4414
+    },
+    {
+      "threshold": 0.4,
+      "false_positive_cost": 8864.32,
+      "false_negative_cost": 561.48,
+      "total_loss": 9425.8,
+      "net_savings": 20400.56,
+      "precision": 0.2958,
+      "recall": 0.9417,
+      "f1_score": 0.4502
+    },
+    {
+      "threshold": 0.41,
+      "false_positive_cost": 8646.25,
+      "false_negative_cost": 561.48,
+      "total_loss": 9207.73,
+      "net_savings": 20618.63,
+      "precision": 0.3021,
+      "recall": 0.9417,
+      "f1_score": 0.4575
+    },
+    {
+      "threshold": 0.42,
+      "false_positive_cost": 8465.85,
+      "false_negative_cost": 561.48,
+      "total_loss": 9027.33,
+      "net_savings": 20799.03,
+      "precision": 0.3087,
+      "recall": 0.9417,
+      "f1_score": 0.465
+    },
+    {
+      "threshold": 0.43,
+      "false_positive_cost": 8402.34,
+      "false_negative_cost": 561.48,
+      "total_loss": 8963.82,
+      "net_savings": 20862.54,
+      "precision": 0.3113,
+      "recall": 0.9417,
+      "f1_score": 0.4679
+    },
+    {
+      "threshold": 0.44,
+      "false_positive_cost": 8212.06,
+      "false_negative_cost": 561.48,
+      "total_loss": 8773.54,
+      "net_savings": 21052.82,
+      "precision": 0.3174,
+      "recall": 0.9417,
+      "f1_score": 0.4748
+    },
+    {
+      "threshold": 0.45,
+      "false_positive_cost": 8073.02,
+      "false_negative_cost": 561.48,
+      "total_loss": 8634.5,
+      "net_savings": 21191.86,
+      "precision": 0.3219,
+      "recall": 0.9417,
+      "f1_score": 0.4798
+    },
+    {
+      "threshold": 0.46,
+      "false_positive_cost": 7834.79,
+      "false_negative_cost": 561.48,
+      "total_loss": 8396.27,
+      "net_savings": 21430.09,
+      "precision": 0.3294,
+      "recall": 0.9417,
+      "f1_score": 0.4881
+    },
+    {
+      "threshold": 0.47,
+      "false_positive_cost": 7722.86,
+      "false_negative_cost": 909.37,
+      "total_loss": 8632.23,
+      "net_savings": 21194.13,
+      "precision": 0.3314,
+      "recall": 0.9333,
+      "f1_score": 0.4891
+    },
+    {
+      "threshold": 0.48,
+      "false_positive_cost": 7652.52,
+      "false_negative_cost": 909.37,
+      "total_loss": 8561.89,
+      "net_savings": 21264.47,
+      "precision": 0.3343,
+      "recall": 0.9333,
+      "f1_score": 0.4923
+    },
+    {
+      "threshold": 0.49,
+      "false_positive_cost": 7591.48,
+      "false_negative_cost": 909.37,
+      "total_loss": 8500.85,
+      "net_savings": 21325.51,
+      "precision": 0.3363,
+      "recall": 0.9333,
+      "f1_score": 0.4945
+    },
+    {
+      "threshold": 0.5,
+      "false_positive_cost": 7340.32,
+      "false_negative_cost": 909.37,
+      "total_loss": 8249.69,
+      "net_savings": 21576.67,
+      "precision": 0.3467,
+      "recall": 0.9333,
+      "f1_score": 0.5056
+    },
+    {
+      "threshold": 0.51,
+      "false_positive_cost": 7282.6,
+      "false_negative_cost": 909.37,
+      "total_loss": 8191.97,
+      "net_savings": 21634.39,
+      "precision": 0.3489,
+      "recall": 0.9333,
+      "f1_score": 0.5079
+    },
+    {
+      "threshold": 0.52,
+      "false_positive_cost": 7216.25,
+      "false_negative_cost": 909.37,
+      "total_loss": 8125.62,
+      "net_savings": 21700.74,
+      "precision": 0.3522,
+      "recall": 0.9333,
+      "f1_score": 0.5114
+    },
+    {
+      "threshold": 0.53,
+      "false_positive_cost": 7131.04,
+      "false_negative_cost": 909.37,
+      "total_loss": 8040.41,
+      "net_savings": 21785.95,
+      "precision": 0.3556,
+      "recall": 0.9333,
+      "f1_score": 0.5149
+    },
+    {
+      "threshold": 0.54,
+      "false_positive_cost": 7109.99,
+      "false_negative_cost": 909.37,
+      "total_loss": 8019.36,
+      "net_savings": 21807.0,
+      "precision": 0.3567,
+      "recall": 0.9333,
+      "f1_score": 0.5161
+    },
+    {
+      "threshold": 0.55,
+      "false_positive_cost": 6969.92,
+      "false_negative_cost": 909.37,
+      "total_loss": 7879.29,
+      "net_savings": 21947.07,
+      "precision": 0.3625,
+      "recall": 0.9333,
+      "f1_score": 0.5221
+    },
+    {
+      "threshold": 0.56,
+      "false_positive_cost": 6640.68,
+      "false_negative_cost": 909.37,
+      "total_loss": 7550.05,
+      "net_savings": 22276.31,
+      "precision": 0.3684,
+      "recall": 0.9333,
+      "f1_score": 0.5283
+    },
+    {
+      "threshold": 0.57,
+      "false_positive_cost": 6614.7,
+      "false_negative_cost": 909.37,
+      "total_loss": 7524.07,
+      "net_savings": 22302.29,
+      "precision": 0.3696,
+      "recall": 0.9333,
+      "f1_score": 0.5296
+    },
+    {
+      "threshold": 0.58,
+      "false_positive_cost": 6588.67,
+      "false_negative_cost": 1008.51,
+      "total_loss": 7597.18,
+      "net_savings": 22229.18,
+      "precision": 0.3688,
+      "recall": 0.925,
+      "f1_score": 0.5273
+    },
+    {
+      "threshold": 0.59,
+      "false_positive_cost": 6297.71,
+      "false_negative_cost": 1008.51,
+      "total_loss": 7306.22,
+      "net_savings": 22520.14,
+      "precision": 0.3763,
+      "recall": 0.925,
+      "f1_score": 0.5349
+    },
+    {
+      "threshold": 0.6,
+      "false_positive_cost": 6125.08,
+      "false_negative_cost": 1008.51,
+      "total_loss": 7133.59,
+      "net_savings": 22692.77,
+      "precision": 0.3828,
+      "recall": 0.925,
+      "f1_score": 0.5415
+    },
+    {
+      "threshold": 0.61,
+      "false_positive_cost": 6022.14,
+      "false_negative_cost": 1008.51,
+      "total_loss": 7030.65,
+      "net_savings": 22795.72,
+      "precision": 0.3881,
+      "recall": 0.925,
+      "f1_score": 0.5468
+    },
+    {
+      "threshold": 0.62,
+      "false_positive_cost": 5955.62,
+      "false_negative_cost": 1008.51,
+      "total_loss": 6964.13,
+      "net_savings": 22862.23,
+      "precision": 0.3922,
+      "recall": 0.925,
+      "f1_score": 0.5509
+    },
+    {
+      "threshold": 0.63,
+      "false_positive_cost": 5891.52,
+      "false_negative_cost": 1008.51,
+      "total_loss": 6900.03,
+      "net_savings": 22926.33,
+      "precision": 0.3936,
+      "recall": 0.925,
+      "f1_score": 0.5522
+    },
+    {
+      "threshold": 0.64,
+      "false_positive_cost": 5830.21,
+      "false_negative_cost": 1117.82,
+      "total_loss": 6948.03,
+      "net_savings": 22878.33,
+      "precision": 0.3943,
+      "recall": 0.9167,
+      "f1_score": 0.5514
+    },
+    {
+      "threshold": 0.65,
+      "false_positive_cost": 5666.0,
+      "false_negative_cost": 1303.43,
+      "total_loss": 6969.43,
+      "net_savings": 22856.93,
+      "precision": 0.3993,
+      "recall": 0.9083,
+      "f1_score": 0.5547
+    },
+    {
+      "threshold": 0.66,
+      "false_positive_cost": 5461.96,
+      "false_negative_cost": 1303.43,
+      "total_loss": 6765.39,
+      "net_savings": 23060.97,
+      "precision": 0.4098,
+      "recall": 0.9083,
+      "f1_score": 0.5648
+    },
+    {
+      "threshold": 0.67,
+      "false_positive_cost": 5461.96,
+      "false_negative_cost": 1329.79,
+      "total_loss": 6791.75,
+      "net_savings": 23034.61,
+      "precision": 0.4075,
+      "recall": 0.9,
+      "f1_score": 0.561
+    },
+    {
+      "threshold": 0.68,
+      "false_positive_cost": 5265.95,
+      "false_negative_cost": 1593.67,
+      "total_loss": 6859.62,
+      "net_savings": 22966.74,
+      "precision": 0.4131,
+      "recall": 0.8917,
+      "f1_score": 0.5646
+    },
+    {
+      "threshold": 0.69,
+      "false_positive_cost": 5116.76,
+      "false_negative_cost": 1593.67,
+      "total_loss": 6710.43,
+      "net_savings": 23115.93,
+      "precision": 0.4229,
+      "recall": 0.8917,
+      "f1_score": 0.5737
+    },
+    {
+      "threshold": 0.7,
+      "false_positive_cost": 4997.81,
+      "false_negative_cost": 1593.67,
+      "total_loss": 6591.48,
+      "net_savings": 23234.88,
+      "precision": 0.428,
+      "recall": 0.8917,
+      "f1_score": 0.5784
+    },
+    {
+      "threshold": 0.71,
+      "false_positive_cost": 4814.99,
+      "false_negative_cost": 1621.4,
+      "total_loss": 6436.39,
+      "net_savings": 23389.97,
+      "precision": 0.4344,
+      "recall": 0.8833,
+      "f1_score": 0.5824
+    },
+    {
+      "threshold": 0.72,
+      "false_positive_cost": 4636.45,
+      "false_negative_cost": 1621.4,
+      "total_loss": 6257.85,
+      "net_savings": 23568.51,
+      "precision": 0.4398,
+      "recall": 0.8833,
+      "f1_score": 0.5873
+    },
+    {
+      "threshold": 0.73,
+      "false_positive_cost": 4565.45,
+      "false_negative_cost": 1621.4,
+      "total_loss": 6186.85,
+      "net_savings": 23639.51,
+      "precision": 0.4435,
+      "recall": 0.8833,
+      "f1_score": 0.5905
+    },
+    {
+      "threshold": 0.74,
+      "false_positive_cost": 4228.96,
+      "false_negative_cost": 1621.4,
+      "total_loss": 5850.36,
+      "net_savings": 23976.0,
+      "precision": 0.4511,
+      "recall": 0.8833,
+      "f1_score": 0.5972
+    },
+    {
+      "threshold": 0.75,
+      "false_positive_cost": 4184.96,
+      "false_negative_cost": 2000.51,
+      "total_loss": 6185.47,
+      "net_savings": 23640.89,
+      "precision": 0.4526,
+      "recall": 0.875,
+      "f1_score": 0.5966
+    },
+    {
+      "threshold": 0.76,
+      "false_positive_cost": 4049.09,
+      "false_negative_cost": 2158.21,
+      "total_loss": 6207.3,
+      "net_savings": 23619.06,
+      "precision": 0.4602,
+      "recall": 0.8667,
+      "f1_score": 0.6012
+    },
+    {
+      "threshold": 0.77,
+      "false_positive_cost": 3940.33,
+      "false_negative_cost": 2158.21,
+      "total_loss": 6098.54,
+      "net_savings": 23727.82,
+      "precision": 0.4664,
+      "recall": 0.8667,
+      "f1_score": 0.6064
+    },
+    {
+      "threshold": 0.78,
+      "false_positive_cost": 3731.64,
+      "false_negative_cost": 2158.21,
+      "total_loss": 5889.85,
+      "net_savings": 23936.51,
+      "precision": 0.4815,
+      "recall": 0.8667,
+      "f1_score": 0.619
+    },
+    {
+      "threshold": 0.79,
+      "false_positive_cost": 3650.5,
+      "false_negative_cost": 2272.3,
+      "total_loss": 5922.8,
+      "net_savings": 23903.56,
+      "precision": 0.4834,
+      "recall": 0.85,
+      "f1_score": 0.6163
+    },
+    {
+      "threshold": 0.8,
+      "false_positive_cost": 3520.75,
+      "false_negative_cost": 2272.3,
+      "total_loss": 5793.05,
+      "net_savings": 24033.31,
+      "precision": 0.4951,
+      "recall": 0.85,
+      "f1_score": 0.6258
+    },
+    {
+      "threshold": 0.81,
+      "false_positive_cost": 3265.23,
+      "false_negative_cost": 2272.3,
+      "total_loss": 5537.53,
+      "net_savings": 24288.83,
+      "precision": 0.51,
+      "recall": 0.85,
+      "f1_score": 0.6375
+    },
+    {
+      "threshold": 0.82,
+      "false_positive_cost": 3082.7,
+      "false_negative_cost": 2272.3,
+      "total_loss": 5355.0,
+      "net_savings": 24471.36,
+      "precision": 0.5231,
+      "recall": 0.85,
+      "f1_score": 0.6476
+    },
+    {
+      "threshold": 0.83,
+      "false_positive_cost": 2980.85,
+      "false_negative_cost": 2272.3,
+      "total_loss": 5253.15,
+      "net_savings": 24573.21,
+      "precision": 0.5312,
+      "recall": 0.85,
+      "f1_score": 0.6538
+    },
+    {
+      "threshold": 0.84,
+      "false_positive_cost": 2610.66,
+      "false_negative_cost": 2272.3,
+      "total_loss": 4882.96,
+      "net_savings": 24943.4,
+      "precision": 0.5635,
+      "recall": 0.85,
+      "f1_score": 0.6777
+    },
+    {
+      "threshold": 0.85,
+      "false_positive_cost": 2493.59,
+      "false_negative_cost": 2272.3,
+      "total_loss": 4765.89,
+      "net_savings": 25060.47,
+      "precision": 0.5763,
+      "recall": 0.85,
+      "f1_score": 0.6869
+    },
+    {
+      "threshold": 0.86,
+      "false_positive_cost": 2405.38,
+      "false_negative_cost": 2357.53,
+      "total_loss": 4762.91,
+      "net_savings": 25063.45,
+      "precision": 0.5838,
+      "recall": 0.8417,
+      "f1_score": 0.6894
+    },
+    {
+      "threshold": 0.87,
+      "false_positive_cost": 2256.61,
+      "false_negative_cost": 2357.53,
+      "total_loss": 4614.14,
+      "net_savings": 25212.22,
+      "precision": 0.6012,
+      "recall": 0.8417,
+      "f1_score": 0.7014
+    },
+    {
+      "threshold": 0.88,
+      "false_positive_cost": 2109.8,
+      "false_negative_cost": 2357.53,
+      "total_loss": 4467.33,
+      "net_savings": 25359.03,
+      "precision": 0.6235,
+      "recall": 0.8417,
+      "f1_score": 0.7163
+    },
+    {
+      "threshold": 0.89,
+      "false_positive_cost": 1948.12,
+      "false_negative_cost": 2357.53,
+      "total_loss": 4305.65,
+      "net_savings": 25520.72,
+      "precision": 0.6392,
+      "recall": 0.8417,
+      "f1_score": 0.7266
+    },
+    {
+      "threshold": 0.9,
+      "false_positive_cost": 1802.03,
+      "false_negative_cost": 2493.89,
+      "total_loss": 4295.92,
+      "net_savings": 25530.44,
+      "precision": 0.6536,
+      "recall": 0.8333,
+      "f1_score": 0.7326
+    },
+    {
+      "threshold": 0.91,
+      "false_positive_cost": 1685.89,
+      "false_negative_cost": 2958.78,
+      "total_loss": 4644.67,
+      "net_savings": 25181.69,
+      "precision": 0.6622,
+      "recall": 0.8167,
+      "f1_score": 0.7313
+    },
+    {
+      "threshold": 0.92,
+      "false_positive_cost": 1423.63,
+      "false_negative_cost": 3102.9,
+      "total_loss": 4526.53,
+      "net_savings": 25299.83,
+      "precision": 0.7029,
+      "recall": 0.8083,
+      "f1_score": 0.7519
+    },
+    {
+      "threshold": 0.93,
+      "false_positive_cost": 1371.4,
+      "false_negative_cost": 3102.9,
+      "total_loss": 4474.3,
+      "net_savings": 25352.06,
+      "precision": 0.708,
+      "recall": 0.8083,
+      "f1_score": 0.7549
+    },
+    {
+      "threshold": 0.94,
+      "false_positive_cost": 1211.06,
+      "false_negative_cost": 3791.78,
+      "total_loss": 5002.84,
+      "net_savings": 24823.52,
+      "precision": 0.7287,
+      "recall": 0.7833,
+      "f1_score": 0.755
+    },
+    {
+      "threshold": 0.95,
+      "false_positive_cost": 880.15,
+      "false_negative_cost": 4610.68,
+      "total_loss": 5490.82,
+      "net_savings": 24335.53,
+      "precision": 0.7607,
+      "recall": 0.7417,
+      "f1_score": 0.7511
+    },
+    {
+      "threshold": 0.96,
+      "false_positive_cost": 581.78,
+      "false_negative_cost": 4842.78,
+      "total_loss": 5424.56,
+      "net_savings": 24401.8,
+      "precision": 0.8131,
+      "recall": 0.725,
+      "f1_score": 0.7665
+    },
+    {
+      "threshold": 0.97,
+      "false_positive_cost": 441.91,
+      "false_negative_cost": 5694.65,
+      "total_loss": 6136.56,
+      "net_savings": 23689.8,
+      "precision": 0.8469,
+      "recall": 0.6917,
+      "f1_score": 0.7615
+    },
+    {
+      "threshold": 0.98,
+      "false_positive_cost": 343.93,
+      "false_negative_cost": 6740.73,
+      "total_loss": 7084.66,
+      "net_savings": 22741.7,
+      "precision": 0.8667,
+      "recall": 0.65,
+      "f1_score": 0.7429
+    },
+    {
+      "threshold": 0.99,
+      "false_positive_cost": 204.46,
+      "false_negative_cost": 7917.71,
+      "total_loss": 8122.17,
+      "net_savings": 21704.19,
+      "precision": 0.9221,
+      "recall": 0.5917,
+      "f1_score": 0.7208
+    }
+  ],
+  "training_notes": "Logistic regression with class_weight='balanced' to handle ~3% fraud rate. Decision threshold is optimized mathematically on the held-out test set to minimize total business cost (False Positive cost = 10% amount + $20 friction; False Negative cost = amount + $15 chargeback fee)."
+};
