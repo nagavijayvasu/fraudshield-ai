@@ -42,7 +42,13 @@ export function analyzeTransaction(input: TransactionInput): FraudAnalysisResult
   const explanation = explainPrediction(contributions, allSignals);
 
   // 8. Recommended action
-  const recommendedAction = recommendAction(riskLevel, riskScore, anomalyResult.level);
+  let recommendedAction = recommendAction(riskLevel, riskScore, anomalyResult.level);
+
+  // Narrow defensive override for POTENTIAL_ABUSE_RING
+  const hasAbuseRing = allSignals.some((s) => s.signal === "POTENTIAL_ABUSE_RING");
+  if (hasAbuseRing) {
+    recommendedAction = "MANUAL_REVIEW";
+  }
 
   return {
     transaction_id: "",

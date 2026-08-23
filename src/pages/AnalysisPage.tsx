@@ -215,12 +215,12 @@ export function AnalysisPage() {
                 <Field label="Distance from Home (km)">
                   <input type="number" min="0" value={form.distance_from_home} onChange={(e) => update("distance_from_home", e.target.value)} className="input-field" />
                 </Field>
-                <Field label="Device Account Count">
-                  <input type="number" min="1" value={form.device_account_count} onChange={(e) => update("device_account_count", e.target.value)} className="input-field" />
-                </Field>
-                <Field label="IP Account Count">
-                  <input type="number" min="1" value={form.ip_account_count} onChange={(e) => update("ip_account_count", e.target.value)} className="input-field" />
-                </Field>
+                <Field label="Device Account Count (server-derived)">
+                   <input type="number" min="1" readOnly disabled value={form.device_account_count} className="input-field opacity-60 cursor-not-allowed" />
+                 </Field>
+                 <Field label="IP Account Count (server-derived)">
+                   <input type="number" min="1" readOnly disabled value={form.ip_account_count} className="input-field opacity-60 cursor-not-allowed" />
+                 </Field>
               </div>
               <div className="mt-4 flex gap-6">
                 <label className="flex items-center gap-2 text-sm text-slate-300">
@@ -371,7 +371,7 @@ function ResultPanel({ result, input }: { result: FraudAnalysisResult; input: Tr
 
       {/* Explanation */}
       <Card>
-        <CardHeader title="Model Explanation" subtitle="Feature contributions (SHAP-style) from the ML model" />
+        <CardHeader title="Model Explanation" subtitle="Feature contributions from the logistic regression model" />
         <div className="space-y-2 p-5">
           {result.explanation.map((exp, i) => (
             <div key={i} className="flex items-center gap-3">

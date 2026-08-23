@@ -261,6 +261,43 @@ describe("Risk Scoring and Risk Level Classification Tests", () => {
     assert.strictEqual(recommendAction("HIGH", 75, "MEDIUM"), "STEP_UP_VERIFICATION");
     assert.strictEqual(recommendAction("HIGH", 92, "HIGH"), "MANUAL_REVIEW");
   });
+
+  test("Action recommended is escalated to MANUAL_REVIEW when POTENTIAL_ABUSE_RING is triggered", () => {
+    // Ordinary transaction (Medium risk) without abuse ring
+    const normalInput = {
+      user_id: "user_normal",
+      device_fingerprint: "dev_normal",
+      ip_address: "192.168.1.1",
+      amount: 100,
+      is_new_device: true,
+      is_new_ip: true,
+      velocity_1h: 4,
+      failed_transaction_count: 2,
+      previous_chargebacks: 1,
+    };
+    const normalResult = analyzeTransaction(normalInput);
+    // Should get MONITOR (standard Action recommendation for low-anomaly Medium-risk score)
+    assert.strictEqual(normalResult.risk_level, "MEDIUM");
+    assert.strictEqual(normalResult.recommended_action, "MONITOR");
+
+    // Coordinated abuse transaction with POTENTIAL_ABUSE_RING signal (3 linked users on same device/IP)
+    const abuseInput = {
+      user_id: "user_syndicate_1",
+      device_fingerprint: "dev_shared",
+      ip_address: "192.168.1.99",
+      amount: 100,
+      device_account_count: 3, 
+      ip_account_count: 3,     
+      is_new_device: true,
+      velocity_1h: 4,
+      previous_chargebacks: 1,
+    };
+    const abuseResult = analyzeTransaction(abuseInput);
+    // The numerical risk score should naturally map to MEDIUM level (e.g. ~40-60)
+    assert.strictEqual(abuseResult.risk_level, "MEDIUM");
+    // But the recommended action MUST be escalated to MANUAL_REVIEW due to the override
+    assert.strictEqual(abuseResult.recommended_action, "MANUAL_REVIEW");
+  });
 });
 
 describe("Behavioral Rule & Signal Detection Tests", () => {

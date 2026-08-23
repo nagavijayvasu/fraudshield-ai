@@ -58,7 +58,7 @@ The real-time transaction processing pipeline executes the following steps:
 5. **ML Prediction**: A scikit-learn standardizer and Logistic Regression coefficients evaluate the transaction.
 6. **Rule Engine & Network Check**: System rules analyze velocity anomalies and query the relationship graph for shared nodes.
 7. **Risk Scoring**: Output probabilities, network links, and rule violations are compiled into a final score (0–100).
-8. **Action Routing**: The system inserts transaction audit records, creates security alerts, and returns the risk level, score, and recommended action (`ALLOW`, `REVIEW`, `CHALLENGE`, or `BLOCK`).
+8. **Action Routing**: The system inserts transaction audit records, creates security alerts, and returns the risk level, score, and recommended action (`ALLOW`, `MONITOR`, `STEP_UP_VERIFICATION`, or `MANUAL_REVIEW`).
 
 ---
 
@@ -92,9 +92,9 @@ By executing a threshold sweep on these cost functions, the optimal threshold wa
 
 * **F1-Max Threshold**: `0.89`
 * **Optimal Financial Threshold**: `0.90`
-* **Baseline Estimated Loss**: `₹23,86,108.80` (at threshold `0.50`)
-* **Optimized Estimated Loss**: `₹3,43,673.60` (at threshold `0.90`)
-* **Net Loss Reduction**: **`₹20,42,435.20`** (an **`85.6%`** reduction in chargeback and friction losses)
+* **Baseline Estimated Loss (Unprotected)**: `₹23,86,108.80`
+* **Optimized Estimated Loss (threshold 0.90)**: `₹3,43,673.60`
+* **Net Loss Reduction**: **`₹20,42,435.20`** (an **`85.6%`** reduction in estimated losses)
 
 > [!IMPORTANT]  
 > **Disclaimer**: All financial values, savings, and costs are estimates based on project-defined assumptions and the evaluation dataset. They do not represent Razorpay production statistics, actual fee structures, or real-world savings.
@@ -123,7 +123,7 @@ The dashboard includes three interactive scenario presets to demonstrate platfor
 * **Scenario B — Suspicious Transaction**: High value, new device/IP, high velocity, previous chargebacks.
   * *Expected Output*: Elevated risk / `STEP-UP VERIFICATION` or `MANUAL REVIEW` depending on score.
 * **Scenario C — Coordinated Abuse**: Uses shared fingerprints and IPs.
-  * *Expected Output*: `HIGH RISK` / `POTENTIAL_ABUSE_RING` detected.
+  * *Expected Output*: `POTENTIAL_ABUSE_RING` detected. The overall risk level is determined independently by the combined risk score. The abuse-ring signal triggers an escalated defensive action.
   * *Implementation Note*: The project includes a dedicated seeding endpoint `POST /demo/setup-abuse-ring` that seeds relationship records in the database before transaction analysis occurs. This allows the graph engine to evaluate relationship counts naturally.
 
 ---
@@ -169,7 +169,7 @@ npm test
 1. **Clone the repository and install dependencies**:
    ```bash
    git clone https://github.com/nagavijayvasu/fraudshield-ai.git
-   cd fraudshield-ai/project
+   cd fraudshield-ai
    npm install
    ```
 

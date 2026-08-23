@@ -1,4 +1,17 @@
 import type { TransactionInput, RiskSignal } from "./types.ts";
+import { MODEL_AMOUNT_SCALE } from "./feature-engineering.ts";
+
+function formatINR(val: number): string {
+  const x = Math.round(val).toString();
+  let lastThree = x.substring(x.length - 3);
+  const otherLines = x.substring(0, x.length - 3);
+  if (otherLines !== "") {
+    lastThree = "," + lastThree;
+  }
+  const res = otherLines.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+  return `₹${res}`;
+}
+
 
 export interface RuleResult {
   signals: RiskSignal[];
@@ -87,17 +100,18 @@ export function evaluateRules(input: TransactionInput): RuleResult {
 
   // Unusual transaction amount
   const amount = Number(input.amount) || 0;
+  const inrAmount = amount * MODEL_AMOUNT_SCALE;
   if (amount > 2000) {
     signals.push({
       signal: "UNUSUAL_AMOUNT",
-      description: `High transaction amount: $${amount.toFixed(2)}`,
+      description: `High transaction amount: ${formatINR(inrAmount)}`,
       weight: 10,
     });
     transactionRisk += 10;
   } else if (amount > 1000) {
     signals.push({
       signal: "UNUSUAL_AMOUNT",
-      description: `Elevated transaction amount: $${amount.toFixed(2)}`,
+      description: `Elevated transaction amount: ${formatINR(inrAmount)}`,
       weight: 5,
     });
     transactionRisk += 5;
