@@ -2,7 +2,7 @@
 
 > AI-Powered Payment Fraud & Risk Detection Platform
 
-Live Demo: **[fraudshield-ai-pi.vercel.app](https://fraudshield-ai-pi.vercel.app/)**  
+Live Demo: **[fraudshield-ai-t69x.vercel.app](https://fraudshield-ai-t69x.vercel.app/)**  
 GitHub Repository: **[github.com/nagavijayvasu/fraudshield-ai](https://github.com/nagavijayvasu/fraudshield-ai)**
 
 ---
